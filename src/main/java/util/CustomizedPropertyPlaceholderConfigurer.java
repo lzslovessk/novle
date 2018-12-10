@@ -1,0 +1,31 @@
+package util;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+
+public class CustomizedPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
+	
+	private static Map<String, Object> ctxPropertiesMap = new HashMap<String, Object>();
+	
+	@Override
+	protected void processProperties(
+			ConfigurableListableBeanFactory beanFactoryToProcess,
+			Properties props) throws BeansException {
+		super.processProperties(beanFactoryToProcess, props);
+		ctxPropertiesMap = new HashMap<String, Object>();
+		for(Object p : props.keySet()){
+			String keyStr = p.toString();
+			String value = props.getProperty(keyStr);
+			ctxPropertiesMap.put(keyStr, value);
+		}
+	}
+	
+	public static Object getContextProperty(String key){
+		return ctxPropertiesMap.get(key);
+	}
+}

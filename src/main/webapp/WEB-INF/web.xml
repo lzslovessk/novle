@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>novle</display-name>
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+  <!-- Spring 服务层的配置文件 -->
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+ 			classpath:applicationContext.xml,classpath:quartzCommon.xml
+ 		</param-value>
+	</context-param>
+	<!-- Spring 容器启动监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- encode filter 支持中文转码 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+    <!-- 配置spring核心servlet -->
+	<servlet>
+		<servlet-name>novle</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param> 
+			 <param-name>contextConfigLocation</param-name> 
+			 <param-value>classpath:spring-servlet.xml</param-value> 
+		 </init-param> 
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>novle</servlet-name>
+		<url-pattern>/service/*</url-pattern>
+	</servlet-mapping>
+	<!-- url-pattern配置为/，不带文件后缀，会造成其它静态文件(js，css等)不能访问。如配为*.do，则不影响静态文件的访问 --> 
+	<servlet-mapping>
+		<servlet-name>novle</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+    	<servlet-name>DruidStatView</servlet-name>
+    	<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    	<init-param>
+			<param-name>resetEnable</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>loginUsername</param-name>
+			<param-value>dataAdmin</param-value>
+		</init-param>
+		<init-param>
+			<param-name>loginPassword</param-name>
+			<param-value>123456</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>DruidStatView</servlet-name>
+    	<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+	
+<!-- 	<error-page> -->
+<!-- 		<error-code>404</error-code> -->
+<!-- 		<location>/error404.jsp</location> -->
+<!-- 	</error-page> -->
+	
+<!-- 	<error-page> -->
+<!-- 		<error-code>500</error-code> -->
+<!-- 		<location>/error500.jsp</location> -->
+<!-- 	</error-page> -->
+<!-- 	<error-page> -->
+<!-- 		<error-code>403</error-code> -->
+<!-- 		<location>/error404.jsp</location> -->
+<!-- 	</error-page> -->
+	<!-- 单位分钟 -->
+	<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
+</web-app>

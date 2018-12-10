@@ -1,0 +1,49 @@
+.popup_loading{
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -80px;
+    /*background-color: rgba(0,0,0,0.8);*/
+    border-radius: 10px;
+}
+.popup_loading .loader{
+    margin: 50px auto 0px auto;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: loading 1s infinite linear;
+    -o-animation: loading 1s infinite linear;
+    animation: loading 1s infinite linear;
+}
+.popup_loading .loading_txt{
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+}
+@-webkit-keyframes loading{
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-o-keyframes loading{
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(360deg);
+    }
+}
+@keyframes loading{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

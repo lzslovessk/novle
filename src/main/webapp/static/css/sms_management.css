@@ -1,0 +1,119 @@
+.sms_title .add_user{
+    margin-left: 10px;
+}
+.sms_user{
+    width: 310px;
+    float: left;
+}
+.sms_user .btns{
+    height: 44px;
+    padding: 10px 0px;
+}
+.sms_user .btns .btn{
+    margin-right: 10px;
+}
+.send_users{
+    width: 660px;
+    min-height: 380px;
+    height: 380px;
+    border: 1px solid #e8e8e8;
+    overflow-y: auto;
+}
+.send_users ul li{
+    border-top: 1px solid #e8e8e8;
+    margin-top: -1px;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    position: relative;
+}
+.send_users ul li .select_user,
+.send_users ul li .user_name,
+.send_users ul li .user_sex,
+.send_users ul li .user_phone,
+.send_users ul li .user_delete{
+    display: inline-block;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top:5px;
+}
+.send_users ul li .user_name{
+    width:200px;
+    left: 20px;
+}
+.send_users ul li .user_sex{
+    width: 200px;
+    left: 230px;
+}
+
+.send_users ul li .user_delete{
+    width: 200px;
+    left: 440px;
+    color: #FF0000;
+}
+.send_users ul li .select_user{
+    width: 16px;
+    height: 16px;
+    top: 3px;
+    left: 10px;
+}
+.sms_template{
+    width: 300px;
+    min-height: 440px;
+    height: 484px;
+    float: left;
+    margin-left: 10px;
+}
+.template_div{
+    height: 44px;
+    padding: 10px 0px;
+}
+.template_content{
+    width: 310px;
+    height: 200px;
+    border: 1px solid #e8e8e8;
+    padding: 5px;
+    overflow-y: auto;
+}
+.template_content0{
+    display: none;
+    font-size: 12px;
+    line-height: 24px;
+}
+.template_content0.select{
+    display: block;
+}
+.template_txt{
+    width: 310px;
+    height: 238px;
+    padding-top: 10px;
+    overflow-y: auto;
+}
+.template_txt ul li{
+    margin: 10px 0px;
+}
+.specify_user_list{
+    height: inherit;
+    padding-bottom: 5px;
+    width: 100%;
+}
+.custom_user_add{
+    margin: 40px 0px;
+}
+.custom_user_add table{
+    width: 100%;
+}
+.custom_user_add table tr td{
+    height: 36px;
+}
+.custom_user_add table tr td.custom_user_title{
+    text-align: right;
+    width: 20%;
+}
+.custom_user_add table tr td.custom_user_value{
+    text-align: left;
+    width: 80%;
+    padding: 0px 10px;
+}

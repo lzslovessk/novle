@@ -1,0 +1,109 @@
+.eg-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+/*2016.07.22*/
+.eg-main {
+  margin-bottom: 22px;
+}
+
+#basic-example{
+    height: 500px;
+    position: relative;
+}
+.eg-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  box-shadow: inset 0 0 3px #f7f7f7;
+  height: 470px;
+  width: 940px;
+  overflow: hidden;
+}
+
+.eg-wrapper img {
+  width: 100%;
+}
+
+.eg-preview {
+  margin-bottom: 15px;
+}
+
+.preview {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+.preview-lg {
+  width: 290px;
+  height: 160px;
+}
+
+.preview-md {
+  width: 145px;
+  height: 90px;
+}
+
+.preview-sm {
+  width: 72.5px;
+  height: 45px;
+}
+
+.preview-xs {
+  width: 36.25px;
+  height: 22.5px;
+}
+
+.eg-data {
+  padding-right: 15px;
+}
+
+.eg-data .input-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.eg-data .input-group-addon {
+  min-width: 65px;
+}
+
+.eg-button > .btn {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.eg-input .input-group {
+  margin-bottom: 15px;
+}
+
+.eg-output .btn {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.eg-output img {
+  max-height: 214px;
+}
+.btn-info{
+    border: 1px solid green;
+    color: green;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 3px 12px;
+}
+.btn-info:hover{
+    background-color: green;
+    color: #ffffff;
+}
+.eg-button{
+    text-align: center;
+}
+.btn-info[disabled]{
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+    pointer-events: none;
+}
