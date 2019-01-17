@@ -48,7 +48,7 @@ $(function() {
 	if ($.cookie(COOKIE_NAME)){
 	    $("#j_username").val($.cookie(COOKIE_NAME));
 	    $("#j_password").focus();
-	    $("#j_remember").attr('checked', true);
+	   // $("#j_remember").attr('checked', true);
 	} else {
 		$("#j_username").focus();
 	}
@@ -56,7 +56,7 @@ $(function() {
 		changeCode();
 	});
 	$("#login_form").submit(function(){
-		var issubmit = true;
+		/* var issubmit = true;
 		var i_index  = 0;
 		$(this).find('.in').each(function(i){
 			if ($.trim($(this).val()).length == 0) {
@@ -69,26 +69,25 @@ $(function() {
 		if (!issubmit) {
 			$(this).find('.in').eq(i_index).focus();
 			return false;
-		}
-		var $remember = $("#j_remember");
+		} */
+		/* var $remember = $("#j_remember");
 		if ($remember.attr('checked')) {
 			$.cookie(COOKIE_NAME, $("#j_username").val(), { path: '/', expires: 15 });
 		} else {
 			$.cookie(COOKIE_NAME, null, { path: '/' });  //删除cookie
-		}
-		$("#login_ok").attr("disabled", true).val('登录中..');
+		} */
+		//$("#login_ok").attr("disabled", true).val('登录中..');
 		//var password = HMAC_SHA256_MAC($("#j_username").val(), $("#j_password").val());
 		//$("#j_password").val(HMAC_SHA256_MAC($("#j_randomKey").val(), password));
 		
 		var param = $(this).serialize();
 		$.ajax({
 			type: "post",
-			url: "/MarketingGoods/login.do",
+			url: "/login.do", 
 			data: param,
 			dataType: "json",
 			success: function(retobj){
 				if(retobj.resultType != "success") {
-					alert(retobj.message);
 					$("#login_ok").attr("disabled", false).val(' 登 录 ');
 				} else {
 					window.location.href="main.do";
@@ -143,19 +142,19 @@ function choose_bg() {
     		<form action="index.html" id="login_form" method="post">
                 <input type="hidden" name="jfinal_token" value="${jfinal_token}" />
     			<div class="form-group">
-    				<label for="j_username" class="t">用户名：</label> <input id="j_username" value="" name="loginName" type="text" class="form-control x319 in" autocomplete="off">
+    				<label for="j_username" class="t">用户名：</label> <input id="j_username" value="" name="userName" type="text" class="form-control x319 in" autocomplete="off">
     			</div>
     			<div class="form-group">
     				<label for="j_password" class="t">密　码：</label> <input id="j_password" value="" name="password" type="password" class="form-control x319 in">
     			</div>
-    			<div class="form-group">
+    			<!-- <div class="form-group">
     				<label for="j_captcha" class="t">验证码：</label> <input id="j_captcha" name="validcode" type="text" class="form-control x164 in">
     				<img id="captcha_img" alt="点击更换" title="点击更换" src="validcode.png" class="m">
     			</div>
     			<div class="form-group">
                     <label class="t"></label>
                     <label for="j_remember" class="m"><input id="j_remember" type="checkbox" value="true">&nbsp;记住登录账号!</label>
-    			</div>
+    			</div> -->
     			<div class="form-group space">
                     <label class="t"></label>　　　
     				<input type="submit" id="login_ok" value="&nbsp;登&nbsp;录&nbsp;" class="btn btn-primary btn-lg">&nbsp;&nbsp;&nbsp;&nbsp;
