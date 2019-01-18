@@ -143,7 +143,11 @@
 		<property name="hashIterations" value="1"></property>
 	</bean>
 	
-	<bean class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager" id = "sessionManager">
+	<!-- <bean class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager" id = "sessionManager">
+		<property name="sessionDAO" ref="redisSessionDao" />
+	</bean> -->
+	<!-- 重写DefaultWebSessionManager方法，如果sessionId存在从request里获取session，减少redis压力 -->
+	<bean class="novle.session.CustomSessionManager" id = "sessionManager">
 		<property name="sessionDAO" ref="redisSessionDao" />
 	</bean>
 	
