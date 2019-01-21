@@ -128,6 +128,8 @@
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="realm" ref="realm" />
 		<property name="sessionManager" ref="sessionManager" />
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="rememberMeManager" ref="cookieRememberMeManager" />
 	</bean>
 	
 	<!-- 自定义realm -->
@@ -152,6 +154,18 @@
 	</bean>
 	
 	<bean class="novle.session.RedisSessionDao" id="redisSessionDao"/>
+	
+	<bean class="novle.cache.RedisCacheManager" id="cacheManager" />
+	
+	<bean class="org.apache.shiro.web.mgt.CookieRememberMeManager" id="cookieRememberMeManager">
+		<property name="cookie" ref="cookie"/>
+	</bean>
+	
+	<bean class="org.apache.shiro.web.servlet.SimpleCookie" id="cookie">
+		<constructor-arg value="rememberMe" />
+		<!-- 单位是秒 -->
+		<property name="maxAge" value="600000" /> 
+	</bean>
 	
 	<!-- shiro配置  end -->
 	
