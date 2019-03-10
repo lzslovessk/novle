@@ -1,6 +1,13 @@
 package novle.entity;
 
-public class RolesPermissions {
+import java.io.Serializable;
+
+public class RolesPermissions implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2775344157430230893L;
 	
 	private Integer id;
 	private String roleName;

@@ -41,7 +41,7 @@ public class AuthenticationTest {
 		
 		System.out.println("isAuthenticated:" + subject.isAuthenticated());// true
 		
-//		subject.logout();
+//		subject.logout();  登出
 //		System.out.println("isAuthenticated:" + subject.isAuthenticated());// false
 		
 		subject.checkRoles(roles);
