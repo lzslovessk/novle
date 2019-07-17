@@ -20,7 +20,10 @@
         http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 		
 	<context:component-scan base-package="novle" />
+	
 	<import resource="spring-redis.xml"/> 
+	<import resource="redisson.xml"/> 
+	
 	<bean id="propertyPlaceholderConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -106,6 +109,10 @@
 			<value>
 				/login.html = anon
 				/login.do = anon
+				/redlock.do = anon 
+				/redlock1.do = anon 
+				/noredlock.do = anon 
+				/noredlock1.do = anon 
 				<!-- /testRole.do = roles["admin"]
 				/testRole1.do = roles["admin","admin1"]
 				/testPerms.do = perms["user:select"]
@@ -186,5 +193,6 @@
             </list>
          </property>
     </bean>
+    
 	
 </beans>

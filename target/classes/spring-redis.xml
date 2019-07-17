@@ -2,13 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans	   
-						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+						">
 	
 	<bean class="redis.clients.jedis.JedisPool" id="jedisPool">
 		<constructor-arg ref="jedisPoolConfig" />
-		<constructor-arg value="192.168.64.223" />
+		<constructor-arg value="192.168.54.210" />
 		<constructor-arg value="6379" />
 	</bean>
 		
-	<bean class="redis.clients.jedis.JedisPoolConfig" id="jedisPoolConfig" />	
+	<bean class="redis.clients.jedis.JedisPoolConfig" id="jedisPoolConfig" >
+	</bean>	
 </beans>

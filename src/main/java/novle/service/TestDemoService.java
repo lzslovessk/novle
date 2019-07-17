@@ -16,4 +16,6 @@ public interface TestDemoService {
 	
 	public void del(Integer id);
 	
+	public void doTask();
+	
 }

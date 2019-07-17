@@ -1,6 +1,7 @@
 package novle.service.impl;
 
 import java.util.Date;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,6 +66,35 @@ public class TestDemoServiceImpl implements TestDemoService {
 	@Override
 	public void del(Integer id) {
 		testDemoDao.del(id);
+	}
+
+	@Override
+	public void doTask() {
+		TestDemo test = testDemoDao.getDetail(1);
+		String code = test.getDemoCode();
+		Integer i = Integer.parseInt(code) + 1;
+		code = i.toString();
+		System.out.println("读取code:"+code); 
+		TestDemo testDemo = new TestDemo();
+		testDemo.setId(1);
+		/*
+		 * Random random = new Random(); int _int = random.nextInt(200);
+		 * System.out.println("插入code:"+_int+""); testDemo.setDemoCode(_int+"");
+		 */
+		testDemo.setDemoCode(code);
+		 try { 
+			 Thread.sleep(2000); 
+			 testDemoDao.update(testDemo);
+		  } 
+		 catch (InterruptedException e) {
+			 e.printStackTrace(); 
+		 }
+    	
+		/*
+		 * try { Thread.sleep(5000); } catch (InterruptedException e) {
+		 * e.printStackTrace(); }
+		 */
+		
 	}
 
 }
